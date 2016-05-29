@@ -1,4 +1,3 @@
-#!/usr/bin/python
 
 class ReverseSequenceIterator:
     """An iterator for any Python's sequence types."""

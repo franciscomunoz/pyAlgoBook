@@ -1,4 +1,3 @@
-#!/usr/bin/python
 
 class Vector:
     """Represent a vector in a multidimensional space."""
