@@ -1,0 +1,12 @@
+Redo the justification of proposition 5.1 assuming that the cost of growing the
+array from size k to size 2k is 3k cyber-dollars. How much should each append
+operation be charged to make the amortization work ?
+
+In the original problem each append operation 3 cyber-dollars. 1 for the append
+and 2 accout for an append that does not cause an overflow. The excess of 
+cyber-dollars can be found in index 2^(i-1) to 2^i-1 and each capacity increase
+requires 2^i cyber-dollars.
+
+In this problem we need to say 3 (2^i) cyber-dollars are required to grow. In
+conclusion, we need to store 6 cyberdollars for future grow and 1 for the append.
+This in total makes 7 cyber-dollars.
