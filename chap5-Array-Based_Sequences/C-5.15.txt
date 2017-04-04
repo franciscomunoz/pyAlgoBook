@@ -1,0 +1,5 @@
+By tunning the amount of cyber-dollars per append operation. It can 
+be demonstrated that each append operation can be done in O(1) when
+we grow from N to N + floor(N/4)
+
+
