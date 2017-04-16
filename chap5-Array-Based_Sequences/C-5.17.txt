@@ -1,0 +1,114 @@
+Prove that when using a dynamic array that grows and shrinks as in the previous
+exercise, the following series of 2n operations takes O(n) time. n append opera
+tions on an initially empty array, followed by n pop operations
+
+From section 5.3.2
+
+An overflow occurs when when array S has 2^i elements, for i >= 0.
+
+Remember the range 2^(i-1) to 2^i-1. In order to keep this valid, we start
+amortizing insertions from index 1 in this example
+
+Append:
+                                * 
+                                * 
+O(1)                            * 
+                              0 1 
+                                ^
+                                |
+
+                                  * 
+                                  * 
+O(1)                              * 
+                              0 1 2 3
+                                  ^
+                                  |
+
+                                  * *
+                                  * *
+O(1)                              * *
+                              0 1 2 3 
+                                    ^
+                                    |
+
+                                      * 
+                                      *
+O(1)                                  * 
+                              0 1 2 3 4 5 6 7 
+                                      ^
+                                      |
+
+
+Remove :
+We write every cyberdollar collumns just to show how they cancel each other
+                                      -
+                                      -
+                                      -
+                                      * 
+                                      *
+O(1)                                  * 
+                              0 1 2 3 4 5 6 7 
+                                    ^  
+                                    |
+
+
+                                    -
+                                    -
+                                    -
+                                    * 
+                                    *
+O(1)                                * 
+                              0 1 2 3 4 5 6 7 
+                                  ^  
+                                  |
+
+                                  -
+                                  -
+                                  -
+                                  * 
+                                  *
+O(1)                              * 
+                              0 1 2 3 4 5 6 7 
+                                ^  
+                                |
+
+Resize
+
+                                  -
+                                  -
+                                  -
+                                  * 
+                                  *
+O(1)                              * 
+                              0 1 2 3
+                                ^  
+                                |
+
+                                -
+                                -
+                                -
+                                * 
+                                *
+O(1)                            * 
+                              0 1 2 3
+                              ^  
+                              |
+
+Resize
+                                -
+                                -
+                                -
+                                * 
+                                *
+O(1)                            * 
+                              0 1
+                              ^  
+                              |
+
+Resize
+
+O(1)                        
+                              0 
+                              ^  
+                              |
+
