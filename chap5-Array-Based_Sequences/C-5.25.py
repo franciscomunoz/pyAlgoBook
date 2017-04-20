@@ -2,7 +2,7 @@
 This operation must occur in O(n)"""
 
 def remove_all(data, val):
-    """Compacts all non repeated elements by overwritting repeated locations
+    """Compacts all non repeated elements by overwriting repeated locations
     of repeated elements"""
     keep = 0 
     for i in range(len(data)):
