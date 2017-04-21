@@ -1,0 +1,5 @@
+Why the previous solution to the problem runs in Big-Omega(n) ?
+
+We must search in all the elements of L to determine missing elements. Not iterating
+through the whole list might ignore elements which are  in there.
+
