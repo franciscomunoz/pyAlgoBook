@@ -1,0 +1,19 @@
+When Bob wants to send Alice a message M on the Internet, he breaks M into n
+data packets, numbers the packets consecutively, and injects them into the network.
+When the packets arrive ar Alice's computer, they may be out of order, so Alice
+must assemble the sequence of n packets in order before she can be shure she has 
+the entire message. Describe an efficient scheme for Alice to do this, assuming
+that she know the value of n.
+
+
+In python context, imagine packets are transmitted in tupples over a network. The
+first element of the tupple is an id, and the second is the packet value.
+
+The idea is to reassemble the packets in a list using the packet id as the index.
+In this way we do not care about the arrival order.
+
+Imagine a Rx list of size n - 1 which is populated at the receiver side like this
+            
+            Rx[p[i][0]] = p[i][1]
+
+where p is a list of tuples containing (id,datum)
