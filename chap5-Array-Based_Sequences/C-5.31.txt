@@ -1,0 +1,20 @@
+Describe a way to use recursion to add all the numbers in an n x n data set, 
+represented as a list of lists.
+
+
+    add_recursively(data, l)
+        
+        if (l <  0 )
+           return 0
+
+        else :
+                sum = 0
+                for i in range(len(data[l]))
+                    sum += data[l][i]
+                
+                return add_recursively(data,l - 1) + sum
+
+
+    it is the responsibility of the caller to give the index l and data.
+
+    
