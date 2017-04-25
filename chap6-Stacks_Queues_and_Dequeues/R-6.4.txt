@@ -1,0 +1,14 @@
+Give a resursive method for removing all the elements from a stack.
+
+This is the idea :
+
+recursive_remove(S)
+
+    if (S.empty())
+        return 
+
+    else
+        S.pop()
+        recursive_remove ( S )
+
+

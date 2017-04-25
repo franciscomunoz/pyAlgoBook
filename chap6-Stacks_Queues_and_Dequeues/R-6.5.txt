@@ -1,0 +1,15 @@
+Implement a function that reverses a list of elements by pushing them onto a 
+stack in order and writing them back to the list in reversed order.
+
+Idea :
+
+reverse(data)
+    stack S
+    for i in data
+        S.push(i)
+    for i in range(len(data))
+        data[i] = S.pop()
+
+        
+
+

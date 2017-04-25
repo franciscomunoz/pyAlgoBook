@@ -1,0 +1,11 @@
+Give a precise and complete definition of the concept of matching for grouping
+symbols in an arithmetic expression. Your definition might be recursieve.
+
+E represents the arithmetic expression without grouping symbols, and Z,Z' and
+Z'' recursively denote an arithmetic expression with matching grouping symbols
+
+E
+Z'(Z)Z''
+Z'[Z]Z''
+Z'{Z}Z''
+
