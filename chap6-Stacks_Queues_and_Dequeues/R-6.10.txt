@@ -1,0 +1,35 @@
+Consider what happens if the loop in the ArrayQueue._resize method at lines 
+53-55 of Code Fragment 6.7 had been implemented as:
+
+for k in range(self._size):
+    self._data[k] = old[k] #rather than old[walk]
+
+Give a clear explanation of what could go wrong.
+
+The problem is too obvious !
+
+
+Imagine the following array representing the queue
+
+                     
+index   0 1 2 3 4 5 5 6 7 8 9
+data    5 3 5 9 6 4 2 2 2 2 2
+                        ^ ^
+                        | | 
+                        | front
+                        end of queue
+
+If a resize occurs, the internal representation would be destroyed when doing a
+simple assignment.
+
+index   0 1 2 3 4 5 5 6 7 8 9 10 11 12 ...
+data    5 3 5 9 6 4 2 2 2 2 2
+        ^
+        |
+        front 
+
+
+
+
+
+
