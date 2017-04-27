@@ -1,0 +1,12 @@
+Give an adapter that implements our queue ADT while using a collections.dequeue
+instance for storage
+
+from collections import dequeue
+
+d = dequeue()
+
+enqeue -> append
+dequeue->popleft
+len->count
+first->return d[0]
+is_empty-> return True if not d else False 
