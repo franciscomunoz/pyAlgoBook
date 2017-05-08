@@ -1,0 +1,21 @@
+What values are returned during the following sequence of ADT operations, on 
+initially empty queue?
+
+
+add_first(4)
+add_last(8)
+add_last(9)
+add_first(5)
+back() <-- assume error in the book (last is the correct one)
+delete_first()
+delete_last(()
+add_last(7)
+first()
+last()
+add_last(6)
+delete_first()
+delete_first()
+
+Sequence : 9, 5, 9, 4, 7, 4, 8
+
+

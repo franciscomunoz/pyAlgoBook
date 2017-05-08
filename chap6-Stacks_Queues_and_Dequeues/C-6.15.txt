@@ -1,0 +1,18 @@
+Suppose Alice has picked threee distinc integers and placed then into a Stack S
+in random order. Write a short, straight-line piece of pseudo-code (no loops or
+recursion) that uses only one comparison and only one variable x, yet that 
+results in variable x storing the largest of Alice's three integers with
+probability 2/3. Argue why your metho is correct
+
+
+
+Solution:
+
+The method for obtaining the largest value with 2/3 of probability is the 
+following :
+
+x = S.pop
+x = x if x > S.top() else S.top()
+
+The other 1/3 is in the stack
+
