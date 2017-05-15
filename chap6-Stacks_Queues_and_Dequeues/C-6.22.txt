@@ -1,0 +1,17 @@
+Postfix notation is an unambiguous way of writing an arithmetic expression 
+without parenthesis. Describe a nonrecurvice way of evaluating an expression in
+postfix notation 
+
+Infix
+((5+2) * (8-3))/4
+
+Postfix
+5 2 + 8 3 -*4/
+
+
+Solution:
+Process entire expression from left to right 
+When the value to be processed is a stack we push it
+When the value to be processed is an operator we pop the two operands from the
+stack and push pack the result.
+Continue until there isn't more data to process
