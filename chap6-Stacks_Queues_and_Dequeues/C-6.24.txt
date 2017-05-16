@@ -1,0 +1,27 @@
+Describe how to implement the stack ADT using a single queue as a instance 
+variable, and only constant additional local memory within the method bodies.
+What is the running time of the push(), pop(), and top() methods for your design?
+
+
+
+Solution :
+
+Push  is O(n)
+pop and top O(1)
+
+Top aligment 
+n = 0
+push (val)
+    i = 0
+    Q.enqueue(val)
+    while i != n
+    Q.enqueue(Q.dequeue())
+    n++    
+
+
+pop()
+    n--
+    return Q.dequeue()
+
+top()
+    return Q.front()

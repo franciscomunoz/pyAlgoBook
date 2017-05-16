@@ -1,0 +1,46 @@
+Describe how to implement the dequeue ADT using two stacks as an instance
+variables, such that all queue operations execute in amortized O(1) time.
+Give a formal proof of the amortized bound.
+
+Worst case is O(n) when transfering data between stacks
+Amoritized is O(1)
+init()
+    self.incoming = Stack()
+    self.outgoing = Stack()
+
+
+moveBetweenStacks()
+    while not incoming.isEmpty()
+        outgoing.push(incoming.pop())
+
+len __()__
+    return len(self.incoming) + len(self.outgoing)
+
+
+isEmpty()
+    
+    return self.incoming.isEmpty and self.outgoing.isEmpty()
+    
+front()
+
+    if self.isEmpty()
+        raise Empty("The queue is empty")
+
+    if self.outgoing.isEmpty()
+        moveBetweenStacks()
+
+    return self.outgoing.top()
+
+
+dequeue(()
+
+if self.isEmpty()
+    raise Empty("The queue is empty")
+
+if self.outgoing.isEmpty()
+    moveBetweenStacks()
+
+    return self.outgoing.pop()
+
+
+
