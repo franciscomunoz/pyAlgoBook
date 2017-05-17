@@ -1,6 +1,6 @@
-Describe how to implement the dequeue ADT using two stacks as instance
-variables, such that all queue operations execute in amortized O(1) time.
-Give a formal proof of the amortized bound.
+Describe how  to implement the double-ended queue ADT using two stacks as 
+instance variables, What are the running time of the methods?
+
 
 Worst case is O(n) when transfering data between stacks
 Amoritized is O(1)
@@ -28,8 +28,7 @@ front()
 
     return self.outgoing.top()
 
-
-dequeue(()
+delete_first(()
     if self.isEmpty()
         raise Empty("The queue is empty")
 
@@ -38,6 +37,19 @@ dequeue(()
 
     return self.outgoing.pop()
 
-enqueue(val)
+delete_last()
+    if self.outgoing.isEmpty()
+        raise Empty("The queue is empty")
+
+    return self.incoming.pop()
+
+add_first(val)
+    self.outgoing.push(val)
+
+add_last(val)
     self.incoming.push(val)
+
+
+
+
 
