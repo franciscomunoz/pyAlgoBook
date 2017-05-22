@@ -1,0 +1,12 @@
+Alice has two queues, Q and R, which can store integers. Bob gives Alice 50 odd 
+integers and 50 even integers and insists that she store all 100 integers in Q
+and R. They then play a game where Bob picks Q or R at random and then applies
+the round-robin scheduler, described in the chapter, to te chosen queue a
+random number of times. If the last number to be processed at the end of this 
+game was odd, Bob wins. Othwerwise Alice wins. How can Alice allocate integers
+to queues to optimize her chances of winning? What is her chance of winning?
+
+Solution :
+
+In order to win, Alice should put an even integer in Q and all the other 99 in 
+R. This gives 77/99 (~ 74.7%) change of winning
