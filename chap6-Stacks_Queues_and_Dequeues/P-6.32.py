@@ -61,9 +61,11 @@ class ArrayDequeue:
         if self.is_empty():
             raise Empty('Queue is empty')
         
-        avail = (self._front + self._size) % len(self._data)
         self._size -= 1
-        return self._data[avail]
+        avail = (self._front + self._size) % len(self._data)
+        val = self._data[avail]
+        self._data[avail] = None
+        return val
 
     def add_last(self, e):
         """Add an element to the back of queue."""
@@ -95,6 +97,7 @@ class ArrayDequeue:
 if __name__ == '__main__':
 
     D = ArrayDequeue()
+    import pdb;pdb.set_trace()
     D.add_first(1)
     D.add_first(2)
     D.add_first(3)
