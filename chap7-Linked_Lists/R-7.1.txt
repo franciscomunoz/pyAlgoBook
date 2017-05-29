@@ -1,0 +1,13 @@
+Give an algorithm for finding the second-to-last node in a single linked list
+in which the last node is indecated by a next reference of None
+
+Solution:
+
+current  = L.head
+behind = None
+
+while current != None and current.next != None
+    behind = current
+    current = current.Next
+
+behind Node has the desired value     
