@@ -1,0 +1,14 @@
+Describe a good algorithm for concatenating two singly linked lists L and M,
+given only references to the first node of each list, into a single list L'
+that contains all the nodes of L followed by all the nodes of M
+
+Solution:
+We assume the lists are using the LinkedQueue abstraction
+concatenate(L,M)
+    current = L._head       
+    while current is not None:
+        current = current._next
+    current = M._head
+    
+    M._head = None ? :D
+

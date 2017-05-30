@@ -1,0 +1,22 @@
+Describe a recursive algorithm that counts the number of nodes in a single Linked
+List
+
+Iterative Solution:
+
+def count(L)
+    count = 0
+    current = L._head
+    while current != None:
+        current = current._next
+        count += 1
+    return count
+
+Recursive Solution:
+
+def count(node):
+
+    if node == Node:
+        return 0
+    else:
+    return count(node._next) + 1
+
