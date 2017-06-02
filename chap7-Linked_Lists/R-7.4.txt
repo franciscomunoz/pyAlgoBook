@@ -1,0 +1,18 @@
+Describe in detail how to swap two nodes x and y (and not just their contents)
+in a singly linked list L given references only to x and y. Repeat this exercise
+for the case when L is a doubly linked list. Which algorithm takes more time ?
+
+Solution:
+
+Description
+
+We must find the nodes inside the list and their respective previous node.
+Then, we perform the reconection in terms of x and y positions. For example,
+if previousX is None and previousY is not None, then it means that we must 
+consider connecting the swapped nodes with the previousX and previousY. The 
+next pointer for both x and y needs to be readjusted as well.
+
+The same applies for a doubly linked list; however, we must also consider to
+readjust prev pointer for x and y. In general, there is no time improvement 
+for a doubly linked list.
+

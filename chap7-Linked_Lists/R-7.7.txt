@@ -1,0 +1,20 @@
+Our CircularQueue class of section 7.2.2 provides a rotate() method that has 
+semantics equivalent  to Q.enqueue(Q.dequeue()), for a nonempty queue. Implement
+such a method for othe LinkedQueue class of Section 7.1.2 without the creation
+of new nodes.
+
+Solution:
+
+def rotate(self):
+
+    if self.is_empty():
+        raise Empty('Queue is empty')
+    #Do not do anything if we have a single element 
+    if self._head is not self._tail:
+            temp = self._head
+            self._head = self._head._next
+            tail._next = temp
+            temp._next = None
+
+    
+        

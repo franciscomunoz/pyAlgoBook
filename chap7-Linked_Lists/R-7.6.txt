@@ -1,0 +1,22 @@
+Suppose x and y are references to nodes of circularly linked lists, although not
+neccessarily the same list. Describe a fast algorithm for telling if x and y 
+belong to the same list
+
+Solution:
+Both are nodes which might belong to the same list or not. We iterate using 
+one of the nodes in the hope to run into the other. With this plan on mind
+we just iterate once. 
+
+def nodes_same_list(x,y):
+
+    if x is y:
+        return true
+
+    current = x.next 
+    while current is not x:
+        if current is not y:
+            current = current.next
+        else:
+            return True
+
+    return False 
