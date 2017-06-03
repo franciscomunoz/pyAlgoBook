@@ -1,0 +1,15 @@
+Give a fast algorithm for concatenating two doubly linked lists L and M,
+with header and trailer sentinel nodes, into a single list L'
+
+Solution:
+
+def contatenate(L,M):
+
+    if L.is_empty() or M.is_empty():
+        raise Empty('One or both lists are empty')
+    
+    L._tail._next = M._head
+    M._head._prev = L._tail 
+    
+    L._tail = M._tail 
+    return L

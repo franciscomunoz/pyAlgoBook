@@ -1,0 +1,19 @@
+Describe a nonrecursive method for finding, by link hopping, the middle node
+of a doubly linked list with header and trailer sentinels. In the case of an 
+even number of nodes, report the node slightly left of center as the "middle".
+What is the running time if this method ?
+
+Solution:
+
+def find_middle(self)
+    if is_empty():
+        raise Empty('The list is empty')
+    left = self._head
+    right = self._tail
+           
+    while left != right and right._previous != left:
+        left = left._next
+        right = right._prev
+    return right
+
+Runnin time is O(n) 

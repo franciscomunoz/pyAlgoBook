@@ -1,0 +1,15 @@
+There seems to be redundancy in the repertoire of positional list ADT, as the 
+operation L.add_first(e) could be enacted by the alternative 
+L.add_before(L.first(),e). Likewise, L.add_last(e) might be performed as 
+L.add_after(L.last(),e). Explain why the methods add_first add_last
+
+Solution:
+
+
+L.add_before(L.first(),e)
+L.add_after(L.last(),e)
+
+Each require to function calls. In addition, This methods don't work when the
+list is empty.
+
+
