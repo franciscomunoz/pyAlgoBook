@@ -10,7 +10,8 @@ def max(L):
     marker = L.first()
     max = marker.element()
     marker = L.after(marker)
-    while marker is not None:
+   #In this implementation trailer is not part of the list 
+    while marker is not self._trailer:
         value = marker.element()
         if max < value:
             max = value

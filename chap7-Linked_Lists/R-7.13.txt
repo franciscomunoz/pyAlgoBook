@@ -1,0 +1,16 @@
+Update the PositionalList class to support an additional method find(e),
+which returns the position of the (first ocurrence of) element e in the list
+(or None if not found).
+
+Solution:
+
+def find(self,e):
+    if self.is_empty():
+        raise Empty('The list is empty')
+    current = self._header._next
+   #In this implementation trailer is not part of the list 
+    while current is not self._trailer:
+        if current._element == element:
+            return self.Position(self,current) 
+        current = current._next 
+    return None

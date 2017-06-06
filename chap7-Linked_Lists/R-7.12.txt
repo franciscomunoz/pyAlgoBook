@@ -10,7 +10,7 @@ def max(self):
     marker = self.header._next
     max = marker._element
     marker = marker._next
-    while marker is not None:
+    while marker is not self._trailer:
         value = marker._element
         if max < value:
             max = value

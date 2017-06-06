@@ -1,0 +1,19 @@
+Repeat the previous process using recursion, Your method should not contain 
+any loops. How much space does your method use in addition to the space.
+
+Solution:
+
+
+def find(self,e,node):
+    
+    return self._find_recur(e, self.header._next)
+
+def _find_recur(self, e, current):
+    if current is self._trailer:
+        return None
+    else:
+        if current.element == e:
+            return self.Position(self,current)
+        return _find_recur(current._next,e)
+
+
