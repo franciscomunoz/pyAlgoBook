@@ -1,0 +1,19 @@
+Implement a function with calling syntax max(L), that return the maximum element 
+from a PositionalList instance L containing coomparable elements.
+
+Solution 
+
+def max(L):
+
+    if L.is_empty():
+        raise Empty('The list is empty')
+    marker = L.first()
+    max = marker.element()
+    marker = L.after(marker)
+    while marker is not None:
+        value = marker.element()
+        if max < value:
+            max = value
+        marker = L.after(marker)
+    return max
+            

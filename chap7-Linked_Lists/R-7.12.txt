@@ -1,0 +1,19 @@
+Redo the previously problem with max as a method of the PositionalList class,
+so that calling syntax L.max is supported
+
+Solution
+
+def max(self):
+
+    if self.is_empty():
+        raise Empty('The list is empty')
+    marker = self.header._next
+    max = marker._element
+    marker = marker._next
+    while marker is not None:
+        value = marker._element
+        if max < value:
+            max = value
+        marker = marker._next
+    return max
+ 
