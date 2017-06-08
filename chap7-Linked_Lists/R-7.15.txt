@@ -1,0 +1,13 @@
+Provide support for a __reversed__method of the PositionalList class that is 
+similar to the given __iter__, but that iterates the elements in reversed order
+
+Solution:
+
+def __reversed__(self):
+    """Generate a backward iterator of the elements of  the list"""
+    cursor = self.last()
+    while cursor is not None:
+        yield cursor.element()
+        cursor = self.before(cursor)
+
+

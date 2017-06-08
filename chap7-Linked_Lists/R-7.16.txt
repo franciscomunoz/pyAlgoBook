@@ -1,0 +1,22 @@
+Describe an implementation of the PositionalList methods add_last and add_before
+realized by using methods in the set {is_empty, first, last, prev, next add_after,
+and add_first}.
+
+Solution
+
+def add_last(self,e):
+
+    if self.is_empty():
+        self.add_first(e)
+    else:
+        self.add_after(self.last(),e)
+
+def add_before(self,p,e)
+    if p == self.first():
+        self._add_first(e)
+    else :
+        self.add_after(self.before(),e)
+
+
+        
+    
