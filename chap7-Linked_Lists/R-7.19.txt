@@ -1,0 +1,8 @@
+Suppose that we have made kn total accesses to the elements in a list L of n 
+elements, for some integer k >= 1. What are the minimum and maximum number of 
+elements that have been accessed fewer than k times?
+
+Solution:
+
+The minimum is k
+Maximum is n - 1 since we could possibly have accessed one element just kn times

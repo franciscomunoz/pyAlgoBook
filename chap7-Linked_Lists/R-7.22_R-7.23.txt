@@ -1,0 +1,5 @@
+Implement a clear method for the FavoritesList class that returns the list to 
+empty.
+
+7.22 Implemented in positional_list
+7.23 Implemented in favorites_lost

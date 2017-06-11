@@ -1,0 +1,9 @@
+Given the set of elements {a,b,c,d,e,f} stored in a list, show the final state
+of the list, assuming we use the move-to-front heuristic and access the elements
+according to the following sequence : (a,b,c,d,e,f,a,c,f,b,d,e)
+
+Solution:
+
+Move the following nodes to the front (a,b,c,d,e,f,a,c,f,b,d,e)
+
+Result : e,d,b,f,c,a
