@@ -1,0 +1,37 @@
+Describe in detail an algorithm for reversing a singly linked list L using only 
+a constant amount of additional space and not using recursion.
+
+Solution:
+The idea is to use 3 pointers to traverse the list and reverse the pointers
+in a single pass
+
+def reverseList(L):
+
+    before = None
+    current = if L._head is not Node else None
+    after = L._head._next if L._head._next is not Node else None
+
+    #If list is empty or the list has a single element. We do NOT reverse
+    if current is None or current is not None and after is None::
+        return L
+    #When after is None this means list has a single element 
+    while  after is not None:
+        current._next = before
+        before = current
+        current = after
+        after = after._next
+    
+    #If after is None this means current is pointing to the last list element
+    #We must set the next pointer to before and give a new value to the head
+    if before is not None and current is not None:
+        current._next = before
+        L._head = current
+
+    return L
+
+    
+        
+        
+        
+
+
