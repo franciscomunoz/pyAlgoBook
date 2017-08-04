@@ -1,0 +1,1 @@
+Solution is implemented in file doubly_linked_base.py

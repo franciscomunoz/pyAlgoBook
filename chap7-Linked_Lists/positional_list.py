@@ -1,11 +1,31 @@
 from doubly_linked_base import _DoublyLinkedBase
 
 class PositionalList(_DoublyLinkedBase):
-  """A sequential container of elements allowing positional access."""
+    """A sequential container of elements allowing positional access."""
 
-  #-------------------------- nested Position class --------------------------
+    """Solution to Exercise 7.35"""
+    #-------------------------- nested Iterator class --------------------------
+    class Position_Iterator:
+
+        def __init__(self, head_node):
+
+            self._node = head_node
+
+        def __iter__(self):
+            """By convention, an iterator must return itself as an iterator"""
+            return self
+
+        def __next__(self):
+            self._node = self._node._next
+            if self._node._next is not None:
+                return self._node._element
+            else:
+                raise StopIteration()      #There are no more elements
+
+    #-------------------------- nested Position class --------------------------
     class Position:
         """An abstraction representing the location of a single element.
+
 
         Note that two position instaces may represent the same inherent
         location in the list.  Therefore, users should always rely on
@@ -47,7 +67,7 @@ class PositionalList(_DoublyLinkedBase):
             return None                              # boundary violation
         else:
             return self.Position(self, node)         # legitimate position
-        
+
     #------------------------------- accessors -------------------------------
     def first(self):
         """Return the first Position in the list (or None if list is empty)."""
@@ -66,13 +86,17 @@ class PositionalList(_DoublyLinkedBase):
         """Return the Position just after Position p (or None if p is last)."""
         node = self._validate(p)
         return self._make_position(node._next)
-
+    """
     def __iter__(self):
-        """Generate a forward iteration of the elements of the list."""
+        Generate a forward iteration of the elements of the list.
         cursor = self.first()
         while cursor is not None:
             yield cursor.element()
             cursor = self.after(cursor)
+    """
+    def __iter__(self):
+        """Excercise 7.35 This is the actual iterator"""
+        return self.Position_Iterator(self._header)
 
     #------------------------------- mutators -------------------------------
     # override inherited version to return Position, rather than Node
@@ -100,9 +124,9 @@ class PositionalList(_DoublyLinkedBase):
         return self._insert_between(e, original, original._next)
 
     def move_to_front(self,p):
-        """Moves element to the beggining of the positional list"""
+        """Moves element to the begining of the positional list"""
         original = self._validate(p)
-       return self._move_to_front(original._node)
+        return self._move_to_front(original._node)
 
     def delete(self, p):
         """Remove and return the element at Position p."""
@@ -113,7 +137,7 @@ class PositionalList(_DoublyLinkedBase):
         """Removes all the elements from, the list"""
         current = self.first()._node._next
         while current is not None:
-            tmp = node 
+            tmp = node
             node = node._next
             tmp._prev = tmp._next = tmp._element = None
         self._header  = self._trailer
@@ -127,3 +151,33 @@ class PositionalList(_DoublyLinkedBase):
         old_value = original._element       # temporarily store old element
         original._element = e               # replace with new element
         return old_value                    # return the old element value
+
+    def swap(self, a, b):
+        """Exercise 7.34 Swaps position of nodes given positions a and b.
+        This was not tested, but was debugged on paper!"""
+        p = self._validate(a)
+        q = self._validate(b)
+        if p._next is q:
+            """p before q and adjacent"""
+            p._next, q._next = q._next, p
+            p._prev, q._prev = q, p._prev
+            """relink adjacent nodes"""
+            p._next._prev = p
+            q._prev._next = q
+        elif q._next is p:      #
+            """q before p and adjacent"""
+            q._next, p._next = p._next, q
+            p._prev, q._prev = q, p._prev
+            """relink adjacent nodes"""
+            p._prev._next = p
+            q._next._prev = q
+        else:
+            """Not adjacent nodes"""
+            p._next, q._next = q._next, p._next
+            p._prev, q._prev = q._prev, p._prev
+            """relink adjacent pointers to new nodes"""
+            q._prev._next = q
+            q._next._prev = q
+            p._prev._next = p
+            p._next._prev = p
+

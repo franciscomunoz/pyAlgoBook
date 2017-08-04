@@ -69,7 +69,24 @@ class _DoublyLinkedBase:
         #Not stated by the problem, but with return  the node anyways
         return node
 
+    def reverse(self):
+        """Reverse linked list Exercise 7.33"""
+        before = None
+        current = self._header
+        after = current.next if current.next is not self._trailer else None
 
+        if after is None:
+            """Nothing to reverse"""
+            return
+
+        while after is not None:
+            current._next = before
+            current._prev = after
+            before = current
+            current = after
+            after = after._next
+
+        self._header, self._trailer = self._trailer, self._header
 
 
 

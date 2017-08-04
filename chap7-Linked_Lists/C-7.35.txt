@@ -1,0 +1,1 @@
+Solution is implemented in file positional_list.py nested class Position_Iterator
