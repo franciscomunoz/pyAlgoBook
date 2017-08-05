@@ -1,6 +1,9 @@
-from doubly_linked_base import _DoublyLinkedBase
+"""Give a complete implementation of the positional list ADT using a doubly
+linked list that does not include any centinel nodes"""
 
-class PositionalList(_DoublyLinkedBase):
+from doubly_linked_list import DoublyLinkedList
+
+class MyPositionalList(DoublyLinkedList):
     """A sequential container of elements allowing positional access."""
 
     """Solution to Exercise 7.35"""
@@ -16,12 +19,12 @@ class PositionalList(_DoublyLinkedBase):
             return self
 
         def __next__(self):
-            self._node = self._node._next
-            if self._node._next is not None:
-                return self._node._element
+            if self._node is not None:
+                tmp = self._node._element
+                self._node = self._node._next
+                return tmp
             else:
                 raise StopIteration()      #There are no more elements
-
     #-------------------------- nested Position class --------------------------
     class Position:
         """An abstraction representing the location of a single element.
@@ -57,25 +60,22 @@ class PositionalList(_DoublyLinkedBase):
             raise TypeError('p must be proper Position type')
         if p._container is not self:
             raise ValueError('p does not belong to this container')
-        if p._node._next is None:                  # convention for deprecated nodes
+        if p._node is None:                  # convention for deprecated nodes
             raise ValueError('p is no longer valid')
         return p._node
 
     def _make_position(self, node):
         """Return Position instance for given node (or None if sentinel)."""
-        if node is self._header or node is self._trailer:
-            return None                              # boundary violation
-        else:
-            return self.Position(self, node)         # legitimate position
+        return self.Position(self, node)         # legitimate position
 
     #------------------------------- accessors -------------------------------
     def first(self):
         """Return the first Position in the list (or None if list is empty)."""
-        return self._make_position(self._header._next)
+        return self._make_position(self._header)
 
     def last(self):
         """Return the last Position in the list (or None if list is empty)."""
-        return self._make_position(self._trailer._prev)
+        return self._make_position(self._trailer)
 
     def before(self, p):
         """Return the Position just before Position p (or None if p is first)."""
@@ -107,11 +107,11 @@ class PositionalList(_DoublyLinkedBase):
 
     def add_first(self, e):
         """Insert element e at the front of the list and return new Position."""
-        return self._insert_between(e, self._header, self._header._next)
+        return self._insert_between(e, None, self._header)
 
     def add_last(self, e):
         """Insert element e at the back of the list and return new Position."""
-        return self._insert_between(e, self._trailer._prev, self._trailer)
+        return self._insert_between(e, self._trailer, None)
 
     def add_before(self, p, e):
         """Insert element e into list before Position p and return new Position."""
@@ -130,9 +130,8 @@ class PositionalList(_DoublyLinkedBase):
 
     def clear(self):
         """Removes all the elements from, the list"""
-        import pdb;pdb.set_trace()
         node = self.first()._node
-        while node is not None:
+        while node  is not None:
             tmp = node
             node = node._next
             tmp._prev = tmp._next = tmp._element = None
@@ -148,32 +147,24 @@ class PositionalList(_DoublyLinkedBase):
         original._element = e               # replace with new element
         return old_value                    # return the old element value
 
-    def swap(self, a, b):
-        """Exercise 7.34 Swaps position of nodes given positions a and b.
-        This was not tested, but was debugged on paper!"""
-        p = self._validate(a)
-        q = self._validate(b)
-        if p._next is q:
-            """p before q and adjacent"""
-            p._next, q._next = q._next, p
-            p._prev, q._prev = q, p._prev
-            """relink adjacent nodes"""
-            p._next._prev = p
-            q._prev._next = q
-        elif q._next is p:      #
-            """q before p and adjacent"""
-            q._next, p._next = p._next, q
-            p._prev, q._prev = q, p._prev
-            """relink adjacent nodes"""
-            p._prev._next = p
-            q._next._prev = q
-        else:
-            """Not adjacent nodes"""
-            p._next, q._next = q._next, p._next
-            p._prev, q._prev = q._prev, p._prev
-            """relink adjacent pointers to new nodes"""
-            q._prev._next = q
-            q._next._prev = q
-            p._prev._next = p
-            p._next._prev = p
+if __name__ == '__main__':
+    pl = MyPositionalList()
+    pl.add_last(6)
+    pl.add_last(7)
+    pl.add_first(5)
+    pl.add_first(4)
+    pl.add_first(3)
+    pl.add_first(2)
+    pl.add_after(pl.last(),10)
+    pl.add_before(pl.last(),9)
+    pl.delete(pl.before(pl.last()))
+    pl.delete(pl.last())
+    pl.delete(pl.first())
+    pl.replace(pl.first(),1)
+    for i in pl:
+        print(i)
+
+    pl.clear()
+    for i in pl:
+        print(i)
 
