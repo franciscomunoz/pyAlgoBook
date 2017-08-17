@@ -39,7 +39,7 @@ if __name__ == '__main__':
     alpha_list = list(string.ascii_uppercase)
     shuffle(alpha_list)
     """The encoding is donde using a random permutation of the alphabet and the
-    encoding array is calulated in the class ctor"""
+    decoding array is calulated in the class ctor"""
     cipher = SubstitutionCipher(alpha_list)
     message = "THE Eagle  IS IN PLAY; MEET AT JOE'S."
     coded = cipher.encrypt(message)
