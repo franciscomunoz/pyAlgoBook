@@ -1,0 +1,17 @@
+Excercise C-5.29 introduced the notion of a natural join of two databases.
+Describe and analyze an efficient algorithm for computing the natural join 
+of a linked list A of n pairs and a linked list B of m pairs.
+
+Solution:
+
+(x,y) abd (y,z)
+
+After performing the natural join
+(x,y,z)
+
+
+Iterate linked list A and save values in a dictionary where the key is y
+
+Iterate  linked list B and look for y in dictionary previously created. If the
+key is there, then create the join in a new linked list
+

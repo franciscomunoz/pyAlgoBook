@@ -1,0 +1,14 @@
+Describe an efficient method for maintaining a favorits list L, with move-to-
+front heuristic, such that elements that have not been accessed in the most
+recent n accesses are automatically purged from the list
+
+Solution :
+
+
+Maintain a global count of the number of accesses in the sequence, and then 
+with each element in the list, we will keep track of the time stamp for its 
+most recent access. After each operation is performed, we examine the last 
+item in the list and if its most recent access is no longer within the most 
+recent n operations, that element is deleted. 
+(Note that only one element can be purged after a single operation, as it can 
+be the only one who’s most recent access was precisely n + 1 operations ago.)
