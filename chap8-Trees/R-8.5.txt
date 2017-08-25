@@ -1,0 +1,12 @@
+Describe an algorithm , relying only on the BinaryTree operations, that counts
+the number of leaves in a binary tree that are the left child of their respective
+parent.
+
+Solution: is this ok?
+      
+count_left(T,p)
+    count = 0
+    for c in T.children(p):
+        count += 1 if  T.is_leaf(c)
+    return count
+        

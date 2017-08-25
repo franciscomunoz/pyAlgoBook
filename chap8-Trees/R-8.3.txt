@@ -1,0 +1,7 @@
+Give a justification of Proposition 8.4
+
+Solution:
+
+    height = max (depth(p_i_leaf))
+
+    

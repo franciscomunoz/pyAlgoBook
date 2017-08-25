@@ -1,0 +1,10 @@
+What is the running time of a call to T._height2(p) when called on a position p
+distinc from the root of T? (Code fragment 8.5)
+
+Solution:
+
+        p
+
+        n_p stands for the bumber of positions in the subtree from p
+
+        O(n_p)  is the running time

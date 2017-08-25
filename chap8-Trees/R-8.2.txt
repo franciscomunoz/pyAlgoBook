@@ -1,0 +1,4 @@
+Show a tree achieving the worst-case running time for algorithm depth
+
+Solution :
+            O(n)  where n is the total number of positions in T
