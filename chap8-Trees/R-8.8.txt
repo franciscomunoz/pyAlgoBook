@@ -1,0 +1,31 @@
+Answer the following questions so as to justify proposition 8.8
+
+Solution :
+    a. What is the minimum number of external nodes for a proper binary tree
+        with height h ? Justify your answer.
+
+        min = h + 1 . Keep adding a pair of nodes in one side of the tree and 
+            (to keep it proper) and this property will be shown
+
+    b. What is the maximum number of external nodes for a proper binary tree
+        with heigh h ? Justify your answer
+
+        max = 2^h . When all the leaf nodes are at the same level
+
+    c. Let T be a proper binary tree with heigh h and n nodes. Show that
+
+            log(n + 1) - 1 <= h <= (n -1)/2
+
+            The inequality needs to hold for iner, minimum, maximum values of n
+            If n is 3, then there is a h = 1 which gives 
+                
+                    1 <= 1 <= 1 
+            for max values  n = 15 h = 3
+
+                    3 <= 3  <= 7
+
+    d. For which values of n and h can the above lower and upper bounds of h
+        be attained with equality?
+        
+                see c for min
+

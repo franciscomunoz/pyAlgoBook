@@ -1,0 +1,10 @@
+What are the minimum and maximun number of internal and external nodes in an 
+improper binary tree with n nodes?
+
+Solution :
+    
+    Consider single path tree with n nodes (improper tree)
+    
+        Internal n - 1
+        External 1
+
