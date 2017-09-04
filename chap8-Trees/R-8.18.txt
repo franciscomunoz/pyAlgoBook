@@ -1,0 +1,45 @@
+Let T be a binary tree be a binary treewith n positions that is reaized with an
+array representation A, and let f() be the level numbering function of the
+positions of T, as given in Section 8.3.2. Give pseudo-code descriptions of
+each of the methods root, parent, left, right, is_leaf, and is_root
+
+Solution:
+    we assume a positional value is given as argument
+    f_max is the highest possible index
+
+root ()
+
+    return 0
+
+parent (p)
+    
+    if p.i < 0 or  p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return floor(( i - 1)/2)
+
+left (p)
+
+    if p.i < 0 or  p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return 2 * i  + 2
+   
+right (p)
+
+    if p.i < 0 or p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return 2 * i  - 1
+   
+is_leaf (p)
+
+    if p.i < 0 or p.i > f_max
+        raise invalid_range("Index out of bounds")
+
+    if p.i >= f_max/2 and p.i <= f_max  
+        return true
+
+    return false
+
+is_root (p)
+    return p.i == 0 
+
+    

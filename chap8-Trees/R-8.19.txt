@@ -1,0 +1,44 @@
+Our definition of level numbering function f(p), as given in Section 8.3.2,
+began with the root having number 0. Some authors prefer to use a level numbering
+g(p) in which the root is assigned number 1, because it simplifies the arithmetic
+for finding  neighboring positions. Redo Exercise 8.18, but assuming that we use
+a level numbering g(p) in which the root is asigned number 1
+
+Solution:
+    we assume a positional value is given as argument
+    f_max is the highest possible index
+
+root ()
+
+    return 1
+
+parent (p)
+    
+    if p.i < 1 or  p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return floor(( i - 1)/2)
+
+left (p)
+
+    if p.i < 1 or  p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return 2 * (i - 1)  + 2
+   
+right (p)
+
+    if p.i < 1 or p.i > f_max
+        raise invalid_range("Index out of bounds")
+    return 2 * (i - 1) + 3
+   
+is_leaf (p)
+
+    if p.i < 1 or p.i > f_max
+        raise invalid_range("Index out of bounds")
+
+    if p.i >= (f_max-1)/2 + 1 and p.i <= f_max  
+        return true
+
+    return false
+
+is_root (p)
+    return p.i == 1
