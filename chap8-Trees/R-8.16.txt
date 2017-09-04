@@ -1,0 +1,29 @@
+Let T a binary tree with n nodes, and let f() be the level numbering function
+of the positions of T, as given in Section 8.3.2
+
+
+a Show that for every position of p pf T, f(p) <= 2^n - 2
+
+b Show an example of a binary tree with seven nodes that attains the above upper
+bound of f(p) for some position p
+
+Solution: 
+
+Consider a right child only tree !!
+            
+a See below
+
+
+b Consider a right child only tree :
+
+    Nodes        Position            Tree length(array)      Upper bound
+                2*f(p) + 2              2^n - 1                2^n - 2
+
+     1              0                       1                     0
+     2              2                       3                     2
+     3              6                       7                     6                      
+     4              14                      15                    14
+     5              30                      31                    30
+     6              62                      63                    62
+     7              126                     127                   126
+         

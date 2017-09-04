@@ -1,0 +1,18 @@
+Draw a binary tree T that simultaneously satisfies the following:
+
+A preorder traversal of T yields EXAMFUN
+An inorder traversal of T yields MAFXUEN
+
+Solution:
+
+By looking at the information, we realize the root is E and the first leaf node
+(from left to right) is M. This allows to build the following tree :
+
+
+                                E
+    
+                    X                       N
+            
+            A               U
+
+    M               F
